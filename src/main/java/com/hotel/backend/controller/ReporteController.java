@@ -21,13 +21,13 @@ public class ReporteController {
     private final ReportesService reportesService;
 
     @GetMapping("/estadisticas-generales")
-    @PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
     public ResponseEntity<EstadisticasGeneralesDTO> obtenerEstadisticasGenerales() {
         return ResponseEntity.ok(reportesService.obtenerEstadisticasGenerales());
     }
 
     @GetMapping("/resumen-financiero")
-    @PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
     public ResponseEntity<ResumenFinancieroDTO> obtenerResumenFinanciero(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
@@ -35,20 +35,20 @@ public class ReporteController {
     }
 
     @GetMapping("/actividad-reciente")
-    @PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
     public ResponseEntity<List<ActividadRecienteDTO>> obtenerActividadReciente(
             @RequestParam(defaultValue = "10") int limite) {
         return ResponseEntity.ok(reportesService.obtenerActividadReciente(limite));
     }
 
     @GetMapping("/tasa-ocupacion")
-    @PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
     public ResponseEntity<Double> calcularTasaOcupacion() {
         return ResponseEntity.ok(reportesService.calcularTasaOcupacion());
     }
 
     @GetMapping("/estadisticas-periodo")
-    @PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
+    //@PreAuthorize("hasAnyRole('ADMIN', 'RECEPCIONISTA')")
     public ResponseEntity<EstadisticasGeneralesDTO> obtenerEstadisticasPorPeriodo(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
