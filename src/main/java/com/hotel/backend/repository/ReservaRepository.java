@@ -2,6 +2,7 @@ package com.hotel.backend.repository;
 import com.hotel.backend.model.Reserva;
 import com.hotel.backend.enums.EstadoReserva;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,7 +13,8 @@ import java.util.List;
 
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
-    List<Reserva> findByHuespedId(Long huespedId);
+    @EntityGraph(attributePaths = {"habitacion", "factura"})
+    List<Reserva> findAll();
     List<Reserva> findByEstadoReserva(EstadoReserva estado);
 
     @Query(""" 

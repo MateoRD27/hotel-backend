@@ -165,7 +165,7 @@ public class ReservaServiceImpl implements ReservaService {
         Reserva reserva = reservaRepository.findById(reservaId)
                 .orElseThrow(() -> new ResourceNotFoundException("Reserva no encontrada con ID: " + reservaId));
 
-        if (reserva.getEstadoReserva() != EstadoReserva.CONFIRMADA) {
+        if (reserva.getEstadoReserva() != EstadoReserva.CONFIRMADO) {
             throw new IllegalStateException("No se puede hacer check-in. Estado actual: " + reserva.getEstadoReserva());
         }
 

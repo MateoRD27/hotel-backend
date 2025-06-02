@@ -35,7 +35,6 @@ public class Reserva {
     @Positive
     private Integer numPersonas;
 
-    @Lob
     private String notas;
 
     @Enumerated(EnumType.STRING)

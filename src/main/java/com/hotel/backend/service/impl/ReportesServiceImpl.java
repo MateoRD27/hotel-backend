@@ -39,8 +39,8 @@ public class ReportesServiceImpl implements ReportesService {
 
         // Estadísticas de reservas
         estadisticas.setTotalReservas(reservaRepository.count());
-        estadisticas.setReservasPendientes(reservaRepository.countByEstadoReserva(EstadoReserva.CONFIRMADA));
-        estadisticas.setReservasConfirmadas(reservaRepository.countByEstadoReserva(EstadoReserva.CONFIRMADA));
+        estadisticas.setReservasPendientes(reservaRepository.countByEstadoReserva(EstadoReserva.CONFIRMADO));
+        estadisticas.setReservasConfirmadas(reservaRepository.countByEstadoReserva(EstadoReserva.CONFIRMADO));
         estadisticas.setReservasCanceladas(reservaRepository.countByEstadoReserva(EstadoReserva.CANCELADA));
 
         // Estadísticas de facturas
@@ -164,7 +164,7 @@ public class ReportesServiceImpl implements ReportesService {
         estadisticas.setTotalReservas(reservaRepository.countByFechaReservaBetween(
                 fechaInicio.atStartOfDay(), fechaFin.atTime(23, 59, 59)));
         estadisticas.setReservasConfirmadas(reservaRepository.countByEstadoReservaAndFechaReservaBetween(
-                EstadoReserva.CONFIRMADA, fechaInicio.atStartOfDay(), fechaFin.atTime(23, 59, 59)));
+                EstadoReserva.CONFIRMADO, fechaInicio.atStartOfDay(), fechaFin.atTime(23, 59, 59)));
         estadisticas.setReservasCanceladas(reservaRepository.countByEstadoReservaAndFechaReservaBetween(
                 EstadoReserva.CANCELADA, fechaInicio.atStartOfDay(), fechaFin.atTime(23, 59, 59)));
 

@@ -57,7 +57,6 @@ public class Huesped {
     @NotBlank
     private String tipoDocumento;
 
-    @Lob
     private String notas;
 
     // Relación con reservaciones

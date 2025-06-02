@@ -29,7 +29,6 @@ public class Habitacion {
     @Enumerated(EnumType.STRING)
     private EstadoHabitacion estado;
 
-    @Lob
     private String descripcion;
 
     // Relación con reservaciones
@@ -37,7 +36,7 @@ public class Habitacion {
     private List<Reserva> reservaciones = new ArrayList<>();
 
     // Relación con tipo de habitaciones
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tipo_habitacion_id")
     private TipoHabitacion tipoHabitacion;
 }
