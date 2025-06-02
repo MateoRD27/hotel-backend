@@ -45,7 +45,7 @@ public class Reserva {
     private Factura factura;
 
     //Relación con habitacion
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "habitacion_id", nullable = false)
     private Habitacion habitacion;
 
